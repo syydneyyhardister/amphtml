@@ -32,7 +32,7 @@ import {setImportantStyles} from '#core/dom/style';
 const buildSliderTemplate = (element) => {
   const html = htmlFor(element);
   return html`
-    <div class="i-amphtml-story-interactive-slider-container">
+    <div class="i-amphtml-story-interactive-slider-container show">
       <div class="i-amphtml-story-interactive-prompt-container"></div>
       <div class="i-amphtml-story-interactive-slider-input-container">
         <div class="i-amphtml-story-interactive-side-values">0</div>
