@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-.i-amphtml-story-interactive-slider-container {
+.i-amphtml-story-interactive-slider-container.show {
   --percentage: 0%;
 }
 
@@ -130,7 +130,7 @@
   -webkit-appearance: none !important;
   transform:  rotate(45deg) !important;
   box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.25) !important;
-  /* z-index: 5 !important; */
+  z-index: 3 !important; 
   border-radius: 0% 50% 50% 50% !important;
   border: 0.125em solid white !important;
 

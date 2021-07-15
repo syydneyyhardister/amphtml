@@ -32,7 +32,7 @@ import {setImportantStyles} from '#core/dom/style';
 const buildSliderTemplate = (element) => {
   const html = htmlFor(element);
   return html`
-    <div class="i-amphtml-story-interactive-slider-container show">
+    <div class="i-amphtml-story-interactive-slider-container">
       <div class="i-amphtml-story-interactive-prompt-container"></div>
       <div class="i-amphtml-story-interactive-slider-input-container">
         <div class="i-amphtml-story-interactive-side-values">0</div>
@@ -73,6 +73,7 @@ export class AmpStoryInteractiveSlider extends AmpStoryInteractive {
     this.inputEl_ = this.rootEl_.querySelector(
       '.i-amphtml-story-interactive-slider-input'
     );
+
     this.attachPrompt_(this.rootEl_);
     return this.rootEl_;
   }
@@ -100,7 +101,9 @@ export class AmpStoryInteractiveSlider extends AmpStoryInteractive {
   onDrag_() {
     const {value} = this.inputEl_;
     this.bubbleEl_.textContent = value;
-    this.bubbleEl_.classList.add('show');
+    this.rootEl_.classList.add('show');
+    console.log(this.containerEl_)
+    // this.bubbleEl_.classList.add('show');
     setImportantStyles(this.rootEl_, {'--percentage': value + '%'});
   }
 
@@ -110,6 +113,6 @@ export class AmpStoryInteractiveSlider extends AmpStoryInteractive {
   onRelease_() {
     this.updateToPostSelectionState_();
     this.inputEl_.setAttribute('disabled', '');
-    this.bubbleEl_.classList.remove('show');
+    this.rootEl_.classList.remove('show');
   }
 }
