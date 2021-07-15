@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-.i-amphtml-story-interactive-slider-container {
+.i-amphtml-story-interactive-slider-container.show {
   --pct-0-to-1-decimal: 0;
   --pct-0-to-100-percent: calc(100% * var(--pct-0-to-1-decimal));
 }
@@ -32,7 +32,7 @@
   box-sizing: border-box !important;
   position: relative !important;
   --thumb-size: 1.5em;
-  --thumb-offset: calc((.5 - var(--pct-0-to-1-decimal)) * var(--thumb-size));
+  --thumb-offset: calc((0.5 - var(--pct-0-to-1-decimal)) * var(--thumb-size));
 }
 
 .i-amphtml-story-interactive-slider-bubble {
@@ -50,7 +50,7 @@
   color: white !important;
 }
 
-.i-amphtml-story-interactive-slider-bubble.show {
+.i-amphtml-story-interactive-slider-container.show .i-amphtml-story-interactive-slider-bubble{
   transform: translate(var(--bubble-transform-offset), -155%) scale(1) !important;
 }
 
@@ -84,11 +84,12 @@
   font-size: inherit !important;
   height: 1em !important;
   width: 100% !important;
-  --slider-fill-bar-offset: calc(var(--pct-0-to-100-percent) + var(--thumb-offset)) !important;
+  --slider-fill-bar-offset: calc(
+    var(--pct-0-to-100-percent) + var(--thumb-offset)
+  ) !important;
   background: linear-gradient(
     90deg,
-    #b28fff 0%,
-    #783bfe var(--slider-fill-bar-offset),
+    var(--interactive-accent-color) var(--slider-fill-bar-offset),
     transparent var(--slider-fill-bar-offset)
   ) !important;
   border-radius: 0.5em !important;
@@ -106,9 +107,13 @@
 }
 
 .i-amphtml-story-interactive-slider-input::before {
-  background: var(--interactive-accent-color) !important;
+  background: linear-gradient(
+    90deg,
+    white,
+    var(--interactive-accent-color) var(--slider-fill-bar-offset)
+  ) !important;
   content: '' !important;
-  opacity: 0.3 !important;
+  opacity: 0.5 !important;
   width: 100% !important;
   height: 100% !important;
   border-radius: 0.5em !important;
@@ -122,6 +127,15 @@
   height: var(--thumb-size) !important;
   background: var(--interactive-accent-color) !important;
   border-radius: 50% !important;
+}
+
+.i-amphtml-story-interactive-slider-container.show .i-amphtml-story-interactive-slider-input::-webkit-slider-thumb{
+  -webkit-appearance: none !important;
+  transform:  rotate(45deg) !important;
+  box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;  
+  border-radius: 0% 50% 50% 50% !important;
+  border: 0.125em solid white !important;
 }
 
 .i-amphtml-story-interactive-slider-input[disabled] {
