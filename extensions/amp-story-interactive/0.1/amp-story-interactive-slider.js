@@ -24,6 +24,8 @@ import {CSS} from '../../../build/amp-story-interactive-slider-0.1.css';
 import {htmlFor} from '#core/dom/static-template';
 import {setImportantStyles} from '#core/dom/style';
 import {StateProperty} from 'extensions/amp-story/1.0/amp-story-store-service';
+import { emojiConfetti } from './interactive-confetti';
+import { dev } from 'src/log';
 
 /**
  * Generates the template for the slider.
@@ -169,6 +171,17 @@ export class AmpStoryInteractiveSlider extends AmpStoryInteractive {
     });
     this.inputEl_.addEventListener('change', () => {
       this.onRelease_();
+      if(this.sliderType_== SliderType.EMOJI){
+        const confettiEmoji = this.options_[0].confetti;
+  
+        if (confettiEmoji) {
+          emojiConfetti(
+            dev().assertElement(this.rootEl_),
+            this.win,
+            confettiEmoji
+          );
+        }
+      }
     });
 
     this.inputEl_.addEventListener(

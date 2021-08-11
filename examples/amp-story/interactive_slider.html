@@ -100,7 +100,7 @@
         <amp-story-grid-layer template="vertical">
           <div class="title">
             <h1>Slider Component</h1>
-            <p>This is the most basic form of slider in the dark theme</p>
+            <p>This is the most basic form of slider in the dark theme with the default color</p>
           </div>
 
           <amp-story-interactive-slider
@@ -154,23 +154,23 @@
         <div class="title">
           <h1>Slider Component</h1>
           <p>
-            This is the emoji-based slider in the light theme, with a
-            custom accent color
+            This is the emoji-based slider in the light theme with the default color
           </p>
         </div>
 
         <amp-story-interactive-slider
-          style="--interactive-accent-color: #651ffe"
+          
           prompt-text="Come celebrate with us!"
           align-self="center"
           justify-self="center"
           option-1-text="😄"
+          option-1-confetti="😄"
           endpoint="https://webstoriesinteractivity-beta.web.app/api/slider2.json"
         >
         </amp-story-interactive-slider>
       </amp-story-grid-layer>
     </amp-story-page>
-  <amp-story-page id="emoji_style">
+  <amp-story-page id="emoji-confetti">
     <amp-story-grid-layer template="fill">
       <amp-img
         layout="fixed"
@@ -184,21 +184,22 @@
         <h1>Slider Component</h1>
         <p>
           This is the emoji-based slider in the light theme, with a
-          custom accent color
+            custom accent color and emoji confetti
         </p>
       </div>
-
+  
       <amp-story-interactive-slider
         style="--interactive-accent-color: #651ffe"
-        prompt-text="Come celebrate with us!"
+        prompt-text="How much do you like this product?"
         align-self="center"
         justify-self="center"
         option-1-text="😄"
-        endpoint=""
+        option-1-confetti="😄"
+        endpoint="https://webstoriesinteractivity-beta.web.app/api/slider.json"
       >
       </amp-story-interactive-slider>
     </amp-story-grid-layer>
-  </amp-story-page>
+  </amp-story-page> 
   </amp-story>
   </body>
 </html>
